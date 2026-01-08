@@ -1,0 +1,127 @@
+body{
+  font-family: "Montserrat", sans-serif;
+}
+.bg-image-block{
+  background-image: url(images/bg-image.png);
+  background-repeat: no-repeat;
+  background-size: 790px 697px;
+  width: 100%;
+  height: 100%;
+  width: 790px;
+  height: 697px;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  margin: 0;
+}
+.cards-container{
+  display: flex;
+  flex-wrap: wrap;
+  width: 1110px;
+  gap: 45px;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 116px;
+}
+.product-card{
+  width: 340px;
+  height: 573px;
+  background-color: #F7F7FA;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 10px #5150761A;
+}
+
+.img-bottle{
+  width: 290px;
+  height: 245px;
+  margin: 25px 25px 30px 25px;
+}
+
+h1{
+  text-align: center;
+  font-size: 70px;
+  font-weight: 400;
+  line-height: 78px;
+  color: #515076;
+  margin-top: 220px;
+  margin-bottom: 110px;
+}
+
+.product-card.first{
+  background-color: #F7F7FA;
+}
+
+.transparent{
+  color: #A5A3B9;
+  font-weight: 400;
+  font-size: 12px;
+  box-sizing: border-box;
+  height: 24px;
+  margin: 0 0 5px 25px;
+  line-height: 24px;
+}
+
+h2{
+  margin: 0;
+  margin-left: 25px;
+  box-sizing: border-box;
+  height: 27px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 27px;
+  color: #515076;
+  margin-bottom: 5px;
+}
+
+.description{
+  margin-left: 25px;
+  margin-bottom: 15px;
+  color: #515076;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+  box-sizing: border-box;
+  display: block;
+  width: 287px;
+  padding: 0;
+  overflow-wrap: break-word;
+  word-wrap: break-word
+}
+
+.content{
+  display: block;
+  margin-top: 0;
+  padding-top: 0;
+  margin-left: 25px;
+  color: #515076;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+  padding-bottom: 5px;
+}
+ul{
+  margin: 0;
+}
+.list-item{
+  list-style: circle;
+  color: #515076;
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 18ox;
+  margin-bottom: 5px;
+}
+
+.price-info{
+  color: #515076;
+  margin-top: 25px;
+}
+.price{
+  margin: 0px 161px 0 25px;
+  font-size: 20px;
+  font-weight: 700;
+}
+.price-tag{
+  font-size: 20px;
+}
