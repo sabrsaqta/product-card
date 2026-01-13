@@ -1,34 +1,34 @@
 //покраска одной карточки
 const productCard = document.querySelector('.product-card.first');
-const changeColorBtn = document.querySelector('#change-color-btn');
-const blue = '#AFEEEE';
+const colorChangeBtn = document.querySelector('#change-color-btn');
+const blueHash = '#AFEEEE';
 
-changeColorBtn.addEventListener('click', () => {
-  productCard.style.backgroundColor = blue;
+colorChangeBtn.addEventListener('click', () => {
+  productCard.style.backgroundColor = blueHash;
 });
 
 //покраска всех карточек
 const productCards = document.querySelectorAll('.product-card');
-const changeColorAllBtn = document.querySelector('#change-color-all-btn');
+const allColorChangeBtn = document.querySelector('#change-color-all-btn');
 
-const yellow = '#deeeafff';
+const yellowHash = '#deeeafff';
 
-changeColorAllBtn.addEventListener('click', () => {
-  productCards.forEach((card) => card.style.backgroundColor = yellow);
+allColorChangeBtn.addEventListener('click', () => {
+  productCards.forEach((card) => card.style.backgroundColor = yellowHash);
 });
 
 
 //открыть Google
-const openGoogleBtn = document.querySelector('#open-google-first');
+const googleOpenBtn = document.querySelector('#open-google-first');
 
-openGoogleBtn.addEventListener('click', () => {
+googleOpenBtn.addEventListener('click', () => {
   window.open('https://google.com');
   console.log('сработал первый способ')
 })
 
 
 //второй способ
-const openGoogleBtn2 = document.querySelector('#open-google-second');
+const googleOpenBtn2 = document.querySelector('#open-google-second');
 
 
 function openGoogleFunc(){
@@ -38,17 +38,17 @@ function openGoogleFunc(){
   }
 }
 
-openGoogleBtn2.addEventListener('click', () => {
+googleOpenBtn2.addEventListener('click', () => {
   openGoogleFunc();
   console.log('сработал второй способ')
 })
 
 //Вывод лога в консоль
 
-const outputConsoleBtn = document.querySelector('#console-output-btn');
-outputConsoleBtn.addEventListener('click', () => outputConsoleFunc('HW #4'));
+const consoleOutputBtn = document.querySelector('#console-output-btn');
+consoleOutputBtn.addEventListener('click', () => outputConsole('HW #4'));
 
-function outputConsoleFunc(message){
+function outputConsole(message){
   console.log(message);
   alert(message);
 }
@@ -63,10 +63,10 @@ pageTitle.addEventListener('mouseover', () => {
 
 
 //Кнопка с меняющимися цветами
-const changeSelfColorBtn = document.getElementById('change-self-color-btn');
+const selfColorChangeBtn = document.getElementById('change-self-color-btn');
 
-changeSelfColorBtn.addEventListener('click', () => toggleClass());
+selfColorChangeBtn.addEventListener('click', () => toggleClass());
 
 function toggleClass(){
-  changeSelfColorBtn.classList.toggle('change-self-color-btn-active');
+  selfColorChangeBtn.classList.toggle('change-self-color-btn-active');
 }
