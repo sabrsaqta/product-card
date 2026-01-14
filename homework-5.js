@@ -1,0 +1,64 @@
+//3. Создать функцию, которая принимает 2 параметра: город и температуру
+// и выводит сообщение в консоль "Сейчас в X температура  — Y градусов по Цельсию"
+
+function outputCityTemp(city, temp){
+  console.log(`Сейчас в ${city} температура — ${temp} градусов по Цельсию`)
+}
+
+outputCityTemp('Almaty', 0);
+
+
+//4. Создать переменную, которая хранит внутри себя скорость света (гуглим).
+// Создать функцию, которая принимает 1 аргумент - скорость, внутри функции происходит проверка:
+// если переданная скорость выше скорости света — выводим лог "Сверхсветовая скорость",
+// если ниже — "Субсветовая  скорость"? если равна — "Скорость света"
+
+function checkForSpeed(speed){
+  const speedOfLight = 3e8;
+  if(speed > speedOfLight){
+    console.log("Сверхсветовая скорость");
+  } else if (speed < speedOfLight) {
+    console.log("Субсветовая  скорость");
+  } else {
+    console.log("Скорость света");
+  }
+}
+
+checkForSpeed(300000000);
+
+
+//5. Создать переменную №1, которая содержит продукт и переменную №2,
+// которая содержит его цену (на ваше усмотрение).
+// Далее создаем функцию, которая принимает 1 параметр - текущий бюджет,
+// внутри функции происходит проверка: если бюджет превышает цену товара
+// - выводим лог "(ваше название товара) приобретён. Спасибо за покупку!",
+// если нет - обсчитываем разницу и выводим лог "Вам не хватает X$, пополните баланс". 
+// То-есть с помощью функции мы пытаемся приобрести товар.
+
+const product = 'Laptop';
+const laptopPrice = 1000;
+
+const checkTransaction = budget => {
+  if(budget >= laptopPrice){
+    console.log(`${product} приобретен. Спасибо за покупку!`);
+  } else {
+    let difference = laptopPrice - budget;
+    console.log(`Вам не хватает ${difference}$, пополните баланс`);
+  }
+}
+
+checkTransaction(1900);
+
+
+// 6. Создать 1 функцию и именовать её по своему усмотрению
+// 7. Создать 3 переменных (без разницы каких) и именовать их по своему усмотрению
+
+const acceptableGrade = 70;
+const notAcceptableGrade = 50;
+const goodGrade = 90;
+const checkGrade = grade =>  grade >= 70 ? 'Acceptable' : 'Not acceptable';
+
+console.log(checkGrade(acceptableGrade));
+console.log(checkGrade(goodGrade));
+console.log(checkGrade(notAcceptableGrade));
+
