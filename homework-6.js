@@ -27,7 +27,6 @@ const carInfo = {
   color: 'navy blue',
   transmission: 'Automatic',
 }
-
 carInfo.owner = myInfo;
 console.log(carInfo);
 
@@ -38,11 +37,10 @@ console.log(carInfo);
 // если есть - прекращает выполнение (ничего не делает)
 
 function assignMaxSpeedInfo(carObject){
-  if (carObject.maxSpeed === undefined){
+  if (carObject.maxSpeed){
     carObject.maxSpeed = 180;
   }
 }
-
 assignMaxSpeedInfo(carInfo);
 
 
@@ -53,12 +51,10 @@ assignMaxSpeedInfo(carInfo);
 function outputObjectProperty(object, key){
   console.log(object[key]);
 }
-
 outputObjectProperty(carInfo, 'owner');
 
 
 //7. Создать массив, который содержит названия продуктов (просто строки)
-
 const goods = ['bread', 'milk', 'meat', 'vegetables'];
 
 
@@ -74,9 +70,7 @@ const booksArray = [
   { title: 'Book 3', author: 'Author 3', year: 2009 },
   { title: 'Book 4', author: 'Author 4', year: 2013 },
 ];
-
 booksArray.push({ title: 'Book 5', author: 'Author 5', year: 2024});
-
 console.log(booksArray);
 
 
@@ -108,9 +102,7 @@ const computerScienceBooks = [
     year: 2011
   }
 ];
-
 const unitedArrayOfBooks = [...booksArray, ...computerScienceBooks];
-
 console.log(unitedArrayOfBooks);
 
 
@@ -123,14 +115,8 @@ console.log(unitedArrayOfBooks);
 // устанавливаем true (да, это редкий), нет - false (значит это не редкий).
 
 function assignRarityFlag(object){
-  if (object.year <= 2000){
-    object.isRare = true;
-  } else {
-    object.isRare = false;
-  }
-  return object;
+  object.isRare = object.year <= 2000
+  return object
 }
-
 const updatedArrayOfBooks = unitedArrayOfBooks.map(assignRarityFlag)
-
 console.log(updatedArrayOfBooks);
