@@ -36,7 +36,7 @@ console.log(carInfo);
 // "максимальная скорость", если нет - добавляет его и задает значение,
 // если есть - прекращает выполнение (ничего не делает)
 
-function assignMaxSpeedInfo(carObject){
+function assignMaxSpeedInfo(carObject) {
   if (carObject.maxSpeed){
     carObject.maxSpeed = 180;
   }
@@ -48,7 +48,7 @@ assignMaxSpeedInfo(carInfo);
 // — объект, а вторым аргументом — свойство объекта, которое
 // нужно вывести и выводит его значение.
 
-function outputObjectProperty(object, key){
+function outputObjectProperty(object, key) {
   console.log(object[key]);
 }
 outputObjectProperty(carInfo, 'owner');
@@ -114,9 +114,9 @@ console.log(unitedArrayOfBooks);
 // или false. Что я хочу этим сказать: если книга выпущена позже 2000 года,
 // устанавливаем true (да, это редкий), нет - false (значит это не редкий).
 
-function assignRarityFlag(object){
-  object.isRare = object.year <= 2000
-  return object
+function assignRarityFlag(object) {
+  object.isRare = object.year <= 2000;
+  return object;
 }
-const updatedArrayOfBooks = unitedArrayOfBooks.map(assignRarityFlag)
+const updatedArrayOfBooks = unitedArrayOfBooks.map(assignRarityFlag);
 console.log(updatedArrayOfBooks);
