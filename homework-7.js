@@ -31,7 +31,7 @@ console.log(reversedObjects);
 // 7. Вывести в консоль массив тех комментариев, почта пользователей
 // которых содержит ".com"
 
-const isComIncluded = (object) => object.email.includes('.com') ? true : false;
+const isComIncluded = (object) => object.email.includes('.com');
 const newCommentsArray = socialMediaComments.filter(comment => isComIncluded(comment));
 console.log(newCommentsArray);
 
@@ -39,7 +39,10 @@ console.log(newCommentsArray);
 // равно 5 имели postId: 2, а те, у кого id больше 5, имели postId: 1
 
 const newPostIdArray = socialMediaComments.map(comment => {
-  return { ...comment, postId: comment.id <= 5 ? 2 : 1 };
+  return {
+    ...comment,
+    postId: comment.id <= 5 ? 2 : 1
+  };
 });
 console.log(newPostIdArray);
 
@@ -47,7 +50,10 @@ console.log(newPostIdArray);
 //9. Перебрать массив, что бы объекты состояли только из айди и имени
 
 const nameAndIdOnlyArray = socialMediaComments.map(comment => {
-  return { name: comment.name, id: comment.id };
+  return {
+    name: comment.name,
+    id: comment.id
+  };
 });
 console.log(nameAndIdOnlyArray);
 
@@ -55,7 +61,11 @@ console.log(nameAndIdOnlyArray);
 // если длина тела сообщения (body) больше 180 символов - устанавливаем true,
 // меньше - false.
 
-const validatedArray = socialMediaComments.map(comment => ({ ...comment, isInvalid: comment.body.length > 180}));
+const validatedArray = socialMediaComments.map(comment =>
+  ({
+    ...comment,
+    isInvalid: comment.body.length > 180
+  }));
 console.log(validatedArray);
 
 
