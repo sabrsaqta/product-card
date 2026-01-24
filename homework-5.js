@@ -1,7 +1,7 @@
 //3. Создать функцию, которая принимает 2 параметра: город и температуру
 // и выводит сообщение в консоль "Сейчас в X температура  — Y градусов по Цельсию"
 
-function outputCityTemp(city, temp){
+function outputCityTemp(city, temp) {
   console.log(`Сейчас в ${city} температура — ${temp} градусов по Цельсию`)
 }
 
@@ -11,7 +11,7 @@ function outputCityTemp(city, temp){
 // если переданная скорость выше скорости света — выводим лог "Сверхсветовая скорость",
 // если ниже — "Субсветовая  скорость"? если равна — "Скорость света"
 
-function comparingSpeeds(speed){
+function compareSpeeds(speed) {
   const SPEED_OF_LIGHT = 3e8;
   if (speed > SPEED_OF_LIGHT){
     console.log("Сверхсветовая скорость");
@@ -51,6 +51,6 @@ const checkTransaction = budget => {
 const acceptableGrade = 70;
 const unacceptableGrade = 50;
 const highScoreGrade = 90;
-const getGrade = grade =>  grade >= 70 ? 'Acceptable' : 'Not acceptable';
+const getGrade = grade => grade >= 70 ? 'Acceptable' : 'Not acceptable';
 
 
