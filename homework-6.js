@@ -28,7 +28,6 @@ const carInfo = {
   transmission: 'Automatic',
 }
 carInfo.owner = myInfo;
-console.log(carInfo);
 
 
 //5. Написать функцию которая аргументом будет принимать объект,
@@ -41,7 +40,6 @@ function assignMaxSpeedInfo(carObject) {
     carObject.maxSpeed = 180;
   }
 }
-assignMaxSpeedInfo(carInfo);
 
 
 //6. Написать функцию, которая получает первым аргументом
@@ -51,7 +49,6 @@ assignMaxSpeedInfo(carInfo);
 function outputObjectProperty(object, key) {
   console.log(object[key]);
 }
-outputObjectProperty(carInfo, 'owner');
 
 
 //7. Создать массив, который содержит названия продуктов (просто строки)
@@ -71,7 +68,6 @@ const booksArray = [
   { title: 'Book 4', author: 'Author 4', year: 2013 },
 ];
 booksArray.push({ title: 'Book 5', author: 'Author 5', year: 2024});
-console.log(booksArray);
 
 
 //9. Создать еще один массив, состоящих из тех же книг, но относящийся
@@ -103,7 +99,6 @@ const computerScienceBooks = [
   }
 ];
 const unitedArrayOfBooks = [...booksArray, ...computerScienceBooks];
-console.log(unitedArrayOfBooks);
 
 
 
@@ -119,4 +114,3 @@ function assignRarityFlag(object) {
   return object;
 }
 const updatedArrayOfBooks = unitedArrayOfBooks.map(assignRarityFlag);
-console.log(updatedArrayOfBooks);

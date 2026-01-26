@@ -1,11 +1,9 @@
 //3. Создать функцию, которая принимает 2 параметра: город и температуру
 // и выводит сообщение в консоль "Сейчас в X температура  — Y градусов по Цельсию"
 
-function outputCityTemp(city, temp){
+function outputCityTemp(city, temp) {
   console.log(`Сейчас в ${city} температура — ${temp} градусов по Цельсию`)
 }
-
-outputCityTemp('Almaty', 0);
 
 
 //4. Создать переменную, которая хранит внутри себя скорость света (гуглим).
@@ -13,7 +11,7 @@ outputCityTemp('Almaty', 0);
 // если переданная скорость выше скорости света — выводим лог "Сверхсветовая скорость",
 // если ниже — "Субсветовая  скорость"? если равна — "Скорость света"
 
-function comparingSpeeds(speed){
+function compareSpeeds(speed) {
   const SPEED_OF_LIGHT = 3e8;
   if (speed > SPEED_OF_LIGHT){
     console.log("Сверхсветовая скорость");
@@ -23,8 +21,6 @@ function comparingSpeeds(speed){
     console.log("Скорость света");
   }
 }
-
-comparingSpeeds(300000000);
 
 
 //5. Создать переменную №1, которая содержит продукт и переменную №2,
@@ -46,7 +42,7 @@ const checkTransaction = budget => {
     console.log(`Вам не хватает ${difference}$, пополните баланс`);
   }
 }
-checkTransaction(1900);
+
 
 
 // 6. Создать 1 функцию и именовать её по своему усмотрению
@@ -55,9 +51,6 @@ checkTransaction(1900);
 const acceptableGrade = 70;
 const unacceptableGrade = 50;
 const highScoreGrade = 90;
-const getGrade = grade =>  grade >= 70 ? 'Acceptable' : 'Not acceptable';
+const getGrade = grade => grade >= 70 ? 'Acceptable' : 'Not acceptable';
 
-console.log(getGrade(acceptableGrade));
-console.log(getGrade(highScoreGrade));
-console.log(getGrade(unacceptableGrade));
 
