@@ -50,13 +50,12 @@ function renderCards(array, numberOfCards){
     productCardClone.querySelector('.description').textContent = array[i].description;
     const itemsListUl = productCardClone.querySelector('.items-list-ul');
     itemsListUl.innerHTML = '';
-    for(const item of array[i].listItems){
+    for(let item of array[i].listItems){
       const liTag = document.createElement('li');
       liTag.textContent = item;
       liTag.classList.add('list-item');
       itemsListUl.appendChild(liTag);
     }
-    const productDescriptionList = productCardClone.querySelectorAll('.list-item');
     productCardClone.querySelector('.price-tag').textContent = array[i].priceTag;
     productCardList.appendChild(productCardClone);
   }
