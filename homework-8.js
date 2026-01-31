@@ -6,12 +6,12 @@ console.log(productCardTemplate);
 
 //4. Используя метод .reduce(), получить массив объектов, где ключем является
 // название продукта, а значением - его описание
-const nameDescriptionArray = productCards.reduce((accum, card) => {
+const productNamesArray = productCards.reduce((accum, card) => {
   accum.push({ [card.title]: card.description });
   return accum;
 }, []);
 
-console.log(nameDescriptionArray);
+console.log(productNamesArray);
 
 //3. По аналогии из лекции — создать и реализовать шаблон
 // для продуктовых карточек.  (Посмотрите сразу задание 5)
@@ -23,15 +23,19 @@ console.log(nameDescriptionArray);
 // одна возвращает количество карточек, которое нужно ввести, другая - рендерить
 // эти карточки (принимая массив аргументом)
 
-let numOfCards;
-while (true){
-  numOfCards = prompt('Сколько карточек отобразить? (числа от 1 до 5)');
-  if (numOfCards == null) break;
-  if ((numOfCards != "" && !isNaN(numOfCards)) && (numOfCards >= 1 && numOfCards <= 5)){
-    numOfCards = Number(numOfCards);
-    break;
+
+function getNumberOfCards(){
+  let numOfCards;
+  while (true){
+    numOfCards = prompt('Сколько карточек отобразить? (числа от 1 до 5)');
+    if (numOfCards == null) break;
+    if ((numOfCards != "" && !isNaN(numOfCards)) && (numOfCards >= 1 && numOfCards <= 5)){
+      numOfCards = Number(numOfCards);
+      break;
+    }
+    alert("Введите корректный ответ (числа от 1 до 5)");
   }
-  alert("Введите корректный ответ (числа от 1 до 5)");
+  return numOfCards;
 }
 
 function renderCards(array, numberOfCards){
@@ -42,22 +46,23 @@ function renderCards(array, numberOfCards){
       if (bgImage) bgImage.remove();
     }
     productCardClone.querySelector('.img-bottle').src = array[i].image;
-    productCardClone.querySelector('.transparent').textContent = array[i].preTitle;
     productCardClone.querySelector('h2').textContent = array[i].title;
     productCardClone.querySelector('.description').textContent = array[i].description;
-    productCardClone.querySelector('.content').textContent = "Состав:";
+    const itemsListUl = productCardClone.querySelector('.items-list-ul');
+    itemsListUl.innerHTML = '';
+    for(const item of array[i].listItems){
+      const liTag = document.createElement('li');
+      liTag.textContent = item;
+      liTag.classList.add('list-item');
+      itemsListUl.appendChild(liTag);
+    }
     const productDescriptionList = productCardClone.querySelectorAll('.list-item');
-    productDescriptionList.forEach((listItem, index) => {
-      if (array[i].listItems[index]){
-        listItem.textContent = array[i].listItems[index];
-      }
-    });
-    productCardClone.querySelector('.price').textContent = "Цена";
     productCardClone.querySelector('.price-tag').textContent = array[i].priceTag;
     productCardList.appendChild(productCardClone);
   }
 }
 
-if (numOfCards){
-  renderCards(productCards, numOfCards);
+const count = getNumberOfCards();
+if (count){
+  renderCards(productCards, count);
 }
