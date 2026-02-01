@@ -1,19 +1,18 @@
 //покраска одной карточки
-const productCard = document.querySelector('.product-card.first');
 const colorChangeBtn = document.querySelector('#change-color-btn');
-const blueHash = '#AFEEEE';
+const blueHash = '#95eaeaff';
 
 colorChangeBtn.addEventListener('click', () => {
+  const productCard = document.querySelector('.product-card');
   productCard.style.backgroundColor = blueHash;
 });
 
 //покраска всех карточек
-const productCards = document.querySelectorAll('.product-card');
 const allColorChangeBtn = document.querySelector('#change-color-all-btn');
-
 const yellowHash = '#deeeafff';
 
 allColorChangeBtn.addEventListener('click', () => {
+  const productCards = document.querySelectorAll('.product-card');
   productCards.forEach((card) => card.style.backgroundColor = yellowHash);
 });
 

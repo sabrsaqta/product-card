@@ -26,6 +26,22 @@ body {
   margin-bottom: 116px;
 }
 
+.product-card-list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1110px;
+  gap: 45px;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 116px;
+  padding: 0;
+  list-style: none;
+}
+
+.prduct-card-template {
+  width: 0;
+}
+
 .product-card {
   width: 340px;
   height: 573px;
