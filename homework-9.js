@@ -62,6 +62,8 @@ modalForm.addEventListener('submit', (event) => {
     const formData = new FormData(form);
     const userDataObj = Object.fromEntries(formData.entries());
     user = userDataObj;
+    const createdOnTime = new Date();
+    user.createdOn = createdOnTime.toLocaleTimeString();
     console.log(userDataObj);
     console.log(user)
     modalWindow.classList.remove('modal-showed');
