@@ -36,10 +36,11 @@ carInfo.owner = myInfo;
 // если есть - прекращает выполнение (ничего не делает)
 
 function assignMaxSpeedInfo(carObject) {
-  if (carObject.maxSpeed){
+  if (!carObject.maxSpeed){
     carObject.maxSpeed = 180;
   }
 }
+
 
 
 //6. Написать функцию, которая получает первым аргументом
