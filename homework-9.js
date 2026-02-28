@@ -4,14 +4,20 @@
 // и есть "отправкой формы", при нажатии на которую мы будем выводить
 // консоль лог в виде объекта:  { email: 'введенная почта' }
 
-const formEmail = document.querySelector('#email-form');
-formEmail.addEventListener('submit', (event) => {
+function convertFormDataToObject(event) {
   event.preventDefault();
   const form = event.target; //кто затригерил ивент
   const formData = new FormData(form);
   const data = Object.fromEntries(formData.entries()); //из массива массивов в объект
+  return data;
+}
+
+const formEmail = document.querySelector('#email-form');
+formEmail.addEventListener('submit', (event) => {
+  const data = convertFormDataToObject(event);
   console.log(data);
 });
+
 
 //5. Создать кнопку "Регистрация". Создать модальное окно,
 // используя классы "modal, modal-showed". Логика такая:
@@ -58,14 +64,10 @@ modalForm.addEventListener('submit', (event) => {
   if (password.value != passwordRepeat.value || !modalForm.checkValidity()) {
     alert('Регистрация отклонена, проверьте введенные данные');
   } else {
-    const form = event.target;
-    const formData = new FormData(form);
-    const userDataObj = Object.fromEntries(formData.entries());
-    user = userDataObj;
+    const user = convertFormDataToObject(event);
     const createdOnTime = new Date();
     user.createdOn = createdOnTime.toLocaleTimeString();
-    console.log(userDataObj);
-    console.log(user)
+    console.log(user);
     modalWindow.classList.remove('modal-showed');
     bodyTag.style.overflow = '';
   }
