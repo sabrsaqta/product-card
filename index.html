@@ -44,8 +44,106 @@
       </div>
     </template>
   </div>
+
+  <footer>
+    <div class="footer-container">
+
+      <div class="text-block">
+        <h3>Product Cards</h3>
+        <p>У нас самые лучшие продукты для кожи!</p>
+        <div class="icons-container">
+          <img class="icon1" src="images/telegram-icon.svg">
+          <img class="icon2" src="images/vk-icon.svg">
+        </div>
+      </div>
+      
+      <div class="auth-register-block">
+
+        <form id="email-form">
+          <div class="input-block">
+            <label for="email">Подпишись на наши акции:</label>
+            <div class="submit-block">
+              <input name="email" type="email" placeholder="Введи Email..." id="input-email" required>
+              <div class="divider"></div>
+              <button type="submit" id="email-submit">Подписаться</button>
+            </div>
+          </div>
+        </form>
+
+        <div class="register-block">
+          <button type="button" class="register-button">Регистрация</button>
+        </div>
+
+        <div role="button" class="modal">
+          <form id="modal-form">
+            <div class="close-cross"></div>
+            <p class="form-label">Зарегистрируйтесь</p>
+            <div class="modal-inputs-block">
+              <div id="block-user-name" class="form-group">
+                <label for="user-name">Ваше Имя</label>
+                <input id="user-name" minlength="3" placeholder="Ваше Имя"
+                name="user-name" type="text" required class="input-user-name">
+              </div>
+
+              <div id="block-user-surname" class="form-group">
+                <label for="user-surname">Ваша Фамилия</label>
+                <input id="user-surname" minlength="3" placeholder="Ваша Фамилия"
+                name="user-surname" type="text" required class="input-user-surname">
+              </div>
+
+              <div id="block-user-date" class="form-group">
+                <label for="user-date">Дата рождения</label>
+                <input id="user-date" name="userDate" type="date" required class="input-user-date">
+              </div>
+
+              <div id="block-user-login" class="form-group">
+                <label for="user-login">Логин</label>
+                <input id="user-login" minlength="5" placeholder="Логин"
+                name="user-login" type="text" required class="input-user-login">
+              </div>
+
+              <div id="block-user-pwd" class="form-group">
+                <label for="user-pwd">Пароль</label>
+                <input id="user-pwd" minlength="6" placeholder="Пароль"
+                name="user-pwd" type="password" required class="input-user-pwd">
+              </div>
+
+              <div id="block-user-pwd-repeat" class="form-group">
+                <label for="user-pwd-repeat">Повторите пароль</label>
+                <input id="user-pwd-repeat" minlength="6" placeholder="Повторите пароль"
+                name="user-pwd-repeat" type="password" required class="input-user-pwd-repeat">
+              </div>
+            </div>
+            <button class="modal-form-button" type="submit">Отправить</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="nav-block">
+        <label for="nav-ul" class="nav-label">Быстрые ссылки</label>
+        <ul class="nav-ul">
+          <li class="nav-link">
+            <a>Главная</a>
+          </li>
+          <li class="nav-link">
+            <a>Магазин</a>
+          </li>
+          <li class="nav-link">
+            <a>Контакты</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="lower-text">
+      <hr>
+      <p>www.product-cards.com©all right reserve</p>
+    </div>
+  </footer>
+
+
   <script src="main.js"></script>
   <script src="homework-8.js" type="module"></script>
   <script src="product-cards.js" type="module"></script>
+  <script src="homework-9.js" type="module"></script>
 </body>
 </html>
