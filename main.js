@@ -1,71 +1,49 @@
-//покраска одной карточки
-const colorChangeBtn = document.querySelector('#change-color-btn');
-const blueHash = '#95eaeaff';
-
-colorChangeBtn.addEventListener('click', () => {
-  const productCard = document.querySelector('.product-card');
-  productCard.style.backgroundColor = blueHash;
-});
-
-//покраска всех карточек
-const allColorChangeBtn = document.querySelector('#change-color-all-btn');
-const yellowHash = '#deeeafff';
-
-allColorChangeBtn.addEventListener('click', () => {
-  const productCards = document.querySelectorAll('.product-card');
-  productCards.forEach((card) => card.style.backgroundColor = yellowHash);
-});
+import { socialMediaComments } from './comments.js';
+import { productCards } from './product-cards.js';
+import './oldmain.js';
+import './homework-5.js';
+import './homework-6.js';
+import './homework-7.js';
+import './homework-8.js';
+import './homework-9.js';
 
 
-//открыть Google
-const googleOpenBtn = document.querySelector('#open-google-first');
+//3. Создать структуру на ваш выбор, как было показано в лекции
+// (имеется ввиду - с машинами/бьюти-продуктами). Придумайте свою
+// структуру и реализуйте наследуемость классов
 
-googleOpenBtn.addEventListener('click', () => {
-  window.open('https://google.com');
-  console.log('сработал первый способ')
-})
+class Device {
+  constructor(type, model) {
+    this.type = type;
+    this.model = model;
+  }
 
-
-//второй способ
-const googleOpenBtn2 = document.querySelector('#open-google-second');
-
-
-function openGoogleFunc(){
-  const answer = confirm('Открыть Google.com?');
-  if(answer){
-    window.open('https://google.com');
+  unpack() {
+    console.log(`Your ${this.type} ${this.model} is unpacked`);
   }
 }
 
-googleOpenBtn2.addEventListener('click', () => {
-  openGoogleFunc();
-  console.log('сработал второй способ')
-})
+class Laptop extends Device {
+  constructor(type, model, battery) {
+    super(type, model);
+    this.battery = battery;
+  }
 
-//Вывод лога в консоль
+  unpack() {
+    super.unpack();
+    console.log(`Your ${this.type} ${this.model}'s battery is ${this.battery}`);
+  }
 
-const consoleOutputBtn = document.querySelector('#console-output-btn');
-consoleOutputBtn.addEventListener('click', () => outputConsole('HW #4'));
-
-function outputConsole(message){
-  console.log(message);
-  alert(message);
+  charge() {
+    console.log(`Your ${this.type} ${this.model} is charging`);
+  }
 }
 
-//Вывод содержимого в консоль при наведении курсора
-const pageTitle = document.getElementById('page-title')
+const macbookAir = new Laptop('Macbook', 'Air M1', 100);
+macbookAir.unpack();
+macbookAir.charge();
 
-pageTitle.addEventListener('mouseover', () => {
-  const content = pageTitle.textContent;
-  console.log(content);
-});
+const kettleXiaomi = new Device('Kettle', 'Xiaomi');
+kettleXiaomi.unpack();
 
 
-//Кнопка с меняющимися цветами
-const selfColorChangeBtn = document.getElementById('change-self-color-btn');
-
-selfColorChangeBtn.addEventListener('click', () => toggleClass());
-
-function toggleClass(){
-  selfColorChangeBtn.classList.toggle('change-self-color-btn-active');
-}
