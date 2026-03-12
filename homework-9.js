@@ -21,8 +21,7 @@ export function convertFormDataToObject(event) {
 
 const formEmail = document.querySelector('#email-form');
 formEmail.addEventListener('submit', (event) => {
-  const data = convertFormDataToObject(event);
-  console.log(data);
+  const data = convertFormDataToObject(event); //получили в виде объекта данные
   emailForm.reset();
 });
 

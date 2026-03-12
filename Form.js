@@ -29,11 +29,10 @@ export class Form {
     this.userObject = convertFormDataToObject(event);
     const createdOnTime = new Date();
     this.userObject.createdOn = createdOnTime.toLocaleTimeString();
-    console.log(this.userObject);
     this.reset();
   }
 
   isValid(password, passwordRepeat, modalForm) {
-    return password.value != passwordRepeat.value || !modalForm.checkValidity() ? false : true;
+    return !(password.value != passwordRepeat.value || !modalForm.checkValidity());
   }
 }
