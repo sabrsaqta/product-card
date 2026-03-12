@@ -29,6 +29,7 @@ export class Form {
     this.userObject = convertFormDataToObject(event);
     const createdOnTime = new Date();
     this.userObject.createdOn = createdOnTime.toLocaleTimeString();
+    console.log(this.userObject);
     this.reset();
   }
 

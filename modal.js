@@ -12,30 +12,29 @@
 */
 
 export class Modal {
-  constructor(idModal) {
-    this.idModal = idModal;
-    this.myModalWindow = document.getElementById(this.idModal);
-    this.crossBtn = document.querySelector('.close-cross');
+  constructor(modalId) {
+    this.modalWindow = document.getElementById(modalId);
+    this.closeButton = document.querySelector('.close-cross');
 
-    this.listenCrossBtn();
+    this.listenCloseButton();
   }
   
   openModal() {
-    this.myModalWindow.classList.toggle('modal-showed');
+    this.modalWindow.classList.toggle('modal-showed');
     document.body.style.overflow = 'hidden';
   }
 
   closeModal() {
-    this.myModalWindow.classList.remove('modal-showed');
+    this.modalWindow.classList.remove('modal-showed');
     document.body.style.overflow = '';
   }
 
   isOpenModal() {
-    return this.myModalWindow.classList.contains('modal-showed')
+    return this.modalWindow.classList.contains('modal-showed')
   }
 
-  listenCrossBtn() {
-    this.crossBtn.addEventListener('click', () => {
+  listenCloseButton() {
+    this.closeButton.addEventListener('click', () => {
       this.closeModal();
     });
   }

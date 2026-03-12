@@ -22,6 +22,7 @@ export function convertFormDataToObject(event) {
 const formEmail = document.querySelector('#email-form');
 formEmail.addEventListener('submit', (event) => {
   const data = convertFormDataToObject(event); //получили в виде объекта данные
+  console.log(data); //для проверки что объект получен
   emailForm.reset();
 });
 
@@ -37,8 +38,6 @@ formEmail.addEventListener('submit', (event) => {
 //2) Модальное окно находиться ровно по центру страницы, независимо от масштаба
 
 const buttonRegister = document.querySelector('.register-button');
-const modalWindow = document.querySelector('.modal');
-const bodyTag = document.body;
 
 buttonRegister.addEventListener('click', () => {
   myModal.openModal();
