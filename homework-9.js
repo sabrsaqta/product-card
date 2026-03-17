@@ -1,10 +1,17 @@
+import { Modal } from "./modal.js";
+import { Form } from './form.js';
+
+const myModal = new Modal('modal');
+const myForm = new Form('modal-form');
+const emailForm = new Form('email-form');
+
 //4. К Форме, которая прикреплена в футере - добавить логику: 
 // email должен соответствовать стандартам (добавить валидацию),
 // если он не заполнен - форма не отправляется. Кнопка "Подписаться"
 // и есть "отправкой формы", при нажатии на которую мы будем выводить
 // консоль лог в виде объекта:  { email: 'введенная почта' }
 
-function convertFormDataToObject(event) {
+export function convertFormDataToObject(event) {
   event.preventDefault();
   const form = event.target; //кто затригерил ивент
   const formData = new FormData(form);
@@ -14,8 +21,9 @@ function convertFormDataToObject(event) {
 
 const formEmail = document.querySelector('#email-form');
 formEmail.addEventListener('submit', (event) => {
-  const data = convertFormDataToObject(event);
-  console.log(data);
+  const data = convertFormDataToObject(event); //получили в виде объекта данные
+  console.log(data); //для проверки что объект получен
+  emailForm.reset();
 });
 
 
@@ -30,19 +38,15 @@ formEmail.addEventListener('submit', (event) => {
 //2) Модальное окно находиться ровно по центру страницы, независимо от масштаба
 
 const buttonRegister = document.querySelector('.register-button');
-const modalWindow = document.querySelector('.modal');
-const bodyTag = document.body;
 
 buttonRegister.addEventListener('click', () => {
-  modalWindow.classList.toggle('modal-showed');
-  bodyTag.style.overflow = 'hidden';
+  myModal.openModal();
 });
 
 const buttonCloseModal = document.querySelector('.close-cross');
 
 buttonCloseModal.addEventListener('click', () => {
-  modalWindow.classList.remove('modal-showed');
-  bodyTag.style.overflow = '';
+  myModal.closeModal();
 })
 
 //Если пользователь ввел два разных пароля или форма невалидна
@@ -57,19 +61,13 @@ buttonCloseModal.addEventListener('click', () => {
 const password = document.querySelector('#user-pwd');
 const passwordRepeat = document.querySelector('#user-pwd-repeat');
 const modalForm = document.querySelector('#modal-form');
-let user;
 
 modalForm.addEventListener('submit', (event) => {
   event.preventDefault();
-  if (password.value != passwordRepeat.value || !modalForm.checkValidity()) {
-    alert('Регистрация отклонена, проверьте введенные данные');
+  if (myForm.isValid(password, passwordRepeat, modalForm)) {
+    myForm.submit(event);
+    myModal.closeModal();
   } else {
-    const user = convertFormDataToObject(event);
-    const createdOnTime = new Date();
-    user.createdOn = createdOnTime.toLocaleTimeString();
-    console.log(user);
-    modalWindow.classList.remove('modal-showed');
-    bodyTag.style.overflow = '';
+    alert('Регистрация отклонена, проверьте введенные данные');
   }
 });
-
