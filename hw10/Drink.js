@@ -19,7 +19,7 @@
 5) подать напиток
 */
 
-export default class Drink {
+export class Drink {
   #temperature;
   constructor(name, size, price, temperature){
     this.name = name;
@@ -28,7 +28,7 @@ export default class Drink {
     this.#temperature = temperature;
   }
 
-  showDrinkInfo(){
+  showDrinkInfo() {
     console.log(`Напиток ${this.name}, размер ${this.size}, стоимость ${this.price}, температура ${this.#temperature} градусов`);
 
   }

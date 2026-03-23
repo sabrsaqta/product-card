@@ -14,15 +14,8 @@
 2. Можем заказать напиток
 3. Можем получить информацию про напиток
 */
+import { Drink } from "./Drink.js";
 
-import { Coffee } from "./Coffee.js";
-import { Tea } from "./Tea.js";
-import { Milkshake } from "./Milkshake.js";
-import Drink from "./Drink.js";
-
-const iceLatte = new Coffee('Ice Latte', 'Standard', 350, 10, 'Arabica', true);
-const blackTea = new Tea('Black Tea', 'Standard', 150, 70, 'India', false);
-const vanillaShake = new Milkshake('Vanilla Milkshake', 'Big', 450, 15, 'vanilla', true);
 
 
 export class Cafe {
@@ -36,18 +29,11 @@ export class Cafe {
   }
 
   orderDrink(drink, temp) {
-    if (!(drink instanceof Drink)){
+    if (!(drink instanceof Drink)) {
       console.log('Ошибка, введите напиток');
       return;
     }
     console.log(drink.giveDrink(temp));
   }
 }
-
-const newCafe = new Cafe('Iftar', 'Almaty');
-console.log(newCafe.getCafeInfo()); //инфо о кафе
-
-newCafe.orderDrink(iceLatte, 12); //заказ напитка
-
-iceLatte.showDrinkInfo(); //инфо о напитке
 
