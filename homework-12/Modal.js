@@ -3,7 +3,6 @@ export class Modal {
     this.modal = document.getElementById(modalId);
     this.overlay = document.getElementById('overlay');
     this.closeButton = this.modal.querySelector('#modal-close-button');
-    this.callCloseProperty = this.callClose.bind(this); //назвал callCloseProperty, чтобы не путаться с методом, для понимания своего
     this.shouldCloseOnOverlay = shouldCloseOnOverlay;
     this.#initOpen(buttonId);
   }
@@ -12,7 +11,7 @@ export class Modal {
     this.#initClose(this.shouldCloseOnOverlay); //вешаем слушатель на крестик
     this.modal.classList.add('modal-showed');
     this.overlay.classList.add('overlay-showed');
-    if(this.shouldCloseOnOverlay){
+    if(this.shouldCloseOnOverlay) {
       this.overlay.addEventListener('click', this.callClose);
     }
   }
@@ -20,8 +19,12 @@ export class Modal {
   close() {
     this.modal.classList.remove('modal-showed');
     this.overlay.classList.remove('overlay-showed');
-    this.overlay.removeEventListener('click', this.callClose);
-    this.closeButton.removeEventListener('click', this.callClose); //снимаем слушатель с крестика
+    this.#removeListener(this.overlay);
+    this.#removeListener(this.closeButton);
+  }
+
+  #removeListener(element){
+    element.removeEventListener('click', this.callClose);
   }
 
   callClose = () => {
