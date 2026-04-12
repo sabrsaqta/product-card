@@ -11,7 +11,7 @@ export class Modal {
     this.#initClose(this.shouldCloseOnOverlay); //вешаем слушатель на крестик
     this.modal.classList.add('modal-showed');
     this.overlay.classList.add('overlay-showed');
-    if(this.shouldCloseOnOverlay) {
+    if (this.shouldCloseOnOverlay) {
       this.overlay.addEventListener('click', this.callClose);
     }
   }
@@ -19,12 +19,12 @@ export class Modal {
   close() {
     this.modal.classList.remove('modal-showed');
     this.overlay.classList.remove('overlay-showed');
-    this.#removeListener(this.overlay);
-    this.#removeListener(this.closeButton);
+    this.#removeListeners();
   }
 
-  #removeListener(element){
-    element.removeEventListener('click', this.callClose);
+  #removeListeners(){
+    this.overlay.removeEventListener('click', this.callClose);
+    this.closeButton.removeEventListener('click', this.callClose);
   }
 
   callClose = () => {
