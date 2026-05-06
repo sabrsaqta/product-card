@@ -8,25 +8,25 @@ const userCardList = document.querySelector('.users-cards-list');
 
 
 export function renderCards(fetchedArray){
-  for (let i = 0; i < fetchedArray.length; i++){
+  fetchedArray.forEach((user) => {
     const userCardClone = userCardTemplate.content.cloneNode(true);
     const deleteBtn = userCardClone.querySelector('.delete-btn');
     deleteBtn.addEventListener('click', () => {
       const newArray = fetchedArray.filter((userItem) => {
-        return userItem.id !== fetchedArray[i].id;
+        return userItem.id !== user.id;
       });
-      saveNewArray(newArray);
+      rewriteChangedArray(newArray);
     })
-    userCardClone.querySelector('.user-id').textContent = fetchedArray[i].id;
-    userCardClone.querySelector('.user-name').textContent = fetchedArray[i].name;
-    userCardClone.querySelector('.user-surname').textContent = fetchedArray[i].surname;
-    userCardClone.querySelector('.user-email').textContent = fetchedArray[i].email;
-    userCardClone.querySelector('.user-age').textContent = fetchedArray[i].age;
+    userCardClone.querySelector('.user-id').textContent = user.id;
+    userCardClone.querySelector('.user-name').textContent = user.name;
+    userCardClone.querySelector('.user-surname').textContent = user.surname;
+    userCardClone.querySelector('.user-email').textContent = user.email;
+    userCardClone.querySelector('.user-age').textContent = user.age;
     userCardList.appendChild(userCardClone);
-  }
+  });
 }
 
-export function saveNewArray(newArray) {
+export function rewriteChangedArray(newArray) {
   localStorage.setItem('users', JSON.stringify(newArray));
   userCardList.innerHTML = '';
   renderCards(newArray);
@@ -36,10 +36,10 @@ const btnDeleteAll = document.querySelector('.btn-delete-all');
 const btnGetAll = document.querySelector('.btn-get-all');
 
 btnDeleteAll.addEventListener('click', () => {
-  saveNewArray([]);
+  rewriteChangedArray([]);
 });
 
 btnGetAll.addEventListener('click', () => {
-  saveNewArray([]);
+  rewriteChangedArray([]);
   getData();
 })

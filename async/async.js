@@ -2,13 +2,13 @@
 // "Данные загружаются". Это в том случае, если локальное хранилище
 // не заполнено данными и мы еще не сделали запрос.
 import { Modal } from "./Modal.js";
-import { renderCards, saveNewArray } from "./render.js";
+import { renderCards } from "./render.js";
 
 const loadingModal = new Modal('modal-screen');
 const screenMessage = document.getElementById('screen-message');
 
 export async function getData() {
-  if (checkStorage()) {
+  if (!isDataInStorage()) {
     showModal('modal-showed', 'overlay-showed');
 
     const fetchedData = await requestData();
@@ -24,24 +24,10 @@ export async function getData() {
 
 getData();
 
-function checkStorage() {
-  const savedData = localStorage.getItem('users');
-  let isStorageEmpty;
-  if (!savedData) {
-    isStorageEmpty = true;
-    return isStorageEmpty;
-  }
-  try {
-    const usersArray = JSON.parse(savedData);
-    if (usersArray === null || usersArray.length === 0) {
-      isStorageEmpty = true;
-    } else {
-      isStorageEmpty = false;
-    }
-  } catch (error) {
-    isStorageEmpty = true;
-  }
-  return isStorageEmpty;
+function isDataInStorage() {
+  const dataInStorage = localStorage.getItem('users');
+  const usersArray = JSON.parse(dataInStorage);
+  return (usersArray && usersArray.length > 0);
 }
 
 function showModal(modalId, overlayId) {
