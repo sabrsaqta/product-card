@@ -9,7 +9,8 @@ const screenMessage = document.getElementById('screen-message');
 
 export async function getData() {
   if (!isDataInStorage()) {
-    showModal('modal-showed', 'overlay-showed');
+    console.log('here')
+    loadingModal.showModal('modal-showed', 'overlay-showed');
 
     const fetchedData = await requestData();
     if (fetchedData) {
@@ -28,16 +29,6 @@ function isDataInStorage() {
   const dataInStorage = localStorage.getItem('users');
   const usersArray = JSON.parse(dataInStorage);
   return (usersArray && usersArray.length > 0);
-}
-
-function showModal(modalId, overlayId) {
-  loadingModal.modal.classList.add(modalId);
-  loadingModal.overlay.classList.add(overlayId);
-}
-
-function closeModal(modalId, overlayId) {
-  loadingModal.modal.classList.remove(modalId);
-  loadingModal.overlay.classList.remove(overlayId);
 }
 
 //Что бы запросить данные - мы должны сделать запрос через fetch
@@ -67,7 +58,7 @@ async function requestData() {
     await new Promise(resolve => {
       setTimeout(resolve, 3000);
     });
-    closeModal('modal-showed', 'overlay-showed');
+    loadingModal.closeModal('modal-showed', 'overlay-showed');
   }
 }
 

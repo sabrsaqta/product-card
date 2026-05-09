@@ -15,7 +15,7 @@ export function renderCards(fetchedArray){
       const newArray = fetchedArray.filter((userItem) => {
         return userItem.id !== user.id;
       });
-      rewriteChangedArray(newArray);
+      updateCards(newArray);
     })
     userCardClone.querySelector('.user-id').textContent = user.id;
     userCardClone.querySelector('.user-name').textContent = user.name;
@@ -26,7 +26,7 @@ export function renderCards(fetchedArray){
   });
 }
 
-export function rewriteChangedArray(newArray) {
+export function updateCards(newArray) {
   localStorage.setItem('users', JSON.stringify(newArray));
   userCardList.innerHTML = '';
   renderCards(newArray);
@@ -36,10 +36,10 @@ const btnDeleteAll = document.querySelector('.btn-delete-all');
 const btnGetAll = document.querySelector('.btn-get-all');
 
 btnDeleteAll.addEventListener('click', () => {
-  rewriteChangedArray([]);
+  updateCards([]);
 });
 
 btnGetAll.addEventListener('click', () => {
-  rewriteChangedArray([]);
+  updateCards([]);
   getData();
 })
