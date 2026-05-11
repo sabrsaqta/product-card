@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Чингиз",
+    "surname": "Ходжаков",
+    "email": "1sabrsaqta1@gmail.com",
+    "age": 22
+  },
+  {
+    "id": 2,
+    "name": "Мансур",
+    "surname": "Ибрагимов",
+    "email": "mansur.ibr@example.com",
+    "age": 24
+  },
+  {
+    "id": 3,
+    "name": "Амин",
+    "surname": "Юсуфов",
+    "email": "amin.yus@example.com",
+    "age": 21
+  },
+  {
+    "id": 4,
+    "name": "Алихан",
+    "surname": "Каримов",
+    "email": "alikhan.k@example.com",
+    "age": 28
+  },
+  {
+    "id": 5,
+    "name": "Умар",
+    "surname": "Мусаев",
+    "email": "umar.m@example.com",
+    "age": 19
+  },
+  {
+    "id": 6,
+    "name": "Тимур",
+    "surname": "Омаров",
+    "email": "timur.om@example.com",
+    "age": 30
+  }
+]

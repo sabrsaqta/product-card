@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="async.css">
+  <title>Async HW</title>
+</head>
+<body>
+
+  <div class="overlay" id="overlay"></div>
+  <div id="modal-screen" class="modal">
+    <span id="screen-message">Данные загружаются</span>
+  </div>
+
+  <div class="users-cards-container">
+    <ul class="users-cards-list"></ul>
+    <template id="user-card-template">
+      <div class="user-card">
+        <p>
+          <strong class="user-id-tag">ID: </strong>
+          <span class="user-id"></span>
+        </p>
+        <p>
+          <strong class="user-name-tag">Name: </strong>
+          <span class="user-name"></span>
+        </p>
+        <p>
+          <strong class="user-surname-tag">Surname: </strong>
+          <span class="user-surname"></span>
+        </p>
+        <p>
+          <strong class="user-email-tag">Email: </strong>
+          <span class="user-email"></span>
+        </p>
+        <p>
+          <strong class="user-age-tag">Age: </strong>
+          <span class="user-age"></span>
+        </p>
+        <button class="delete-btn">Удалить карточку</button>
+      </div>
+    </template>
+  </div>
+
+  <div class="btns-container">
+    <button class="btn-delete-all">Удалить все карточки</button>
+    <button class="btn-get-all">Получить все карточки</button>
+  </div>
+
+  <script src="async.js" type="module"></script>
+  <script src="render.js" type="module"></script>
+</body>
+</html>

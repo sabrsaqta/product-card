@@ -1,0 +1,81 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.overlay {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  display: none;
+  z-index: -999;
+}
+
+.overlay-showed {
+  display: block;
+}
+
+.modal {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.modal-showed {
+  display: flex;
+}
+
+.users-cards-container {
+  display: flex;
+  width: 1110px;
+  min-height: 70vh;
+  gap: 45px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+}
+
+.users-cards-list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1110px;
+  min-height: auto;
+  gap: 45px;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+.user-card-template {
+  width: 0;
+}
+
+.user-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 30px;
+  width: 340px;
+  height: 200px;
+  background-color: #b1cbff;
+  border: 4px solid rgb(41, 41, 41);
+  box-sizing: border-box;
+}
+
+.btns-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.btns-container button {
+  padding: 15px;
+  background-color: #b1cbff;
+  border: 2px solid rgb(41, 41, 41);
+  border-radius: 8px;
+}
